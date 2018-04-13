@@ -1,4 +1,4 @@
-package jp.xx.restapi.jobService.service;
+package jp.xx.restapi.job.service;
 
 import java.util.List;
 

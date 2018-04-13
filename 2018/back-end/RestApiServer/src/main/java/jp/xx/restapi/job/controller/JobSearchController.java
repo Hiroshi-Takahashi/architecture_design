@@ -1,4 +1,4 @@
-package jp.xx.restapi.jobService.controller;
+package jp.xx.restapi.job.controller;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jp.xx.restapi.jobService.service.JobService;
+import jp.xx.restapi.job.service.JobService;
 
 @RestController
 public class JobSearchController {
