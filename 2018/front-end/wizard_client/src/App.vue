@@ -1,7 +1,15 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div>
+    <div class="header">
+      header
+    </div>
+    <div id="app">
+      <img src="./assets/logo.png">
+      <router-view/>
+    </div>
+    <div class="footer">
+      footer
+    </div>
   </div>
 </template>
 
@@ -19,5 +27,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.header {
+  background-color: cornflowerblue;
+  height: 50px;
+}
+.footer {
+  background-color: cyan;
+  height: 50px;
 }
 </style>
