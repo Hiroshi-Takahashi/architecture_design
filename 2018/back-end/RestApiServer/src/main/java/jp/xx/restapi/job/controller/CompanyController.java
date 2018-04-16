@@ -6,17 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jp.xx.restapi.job.service.JobService;
+import jp.xx.restapi.job.entity.Company;
+import jp.xx.restapi.job.service.CompanyService;
 
+/**
+ * 企業に対して操作を行うコントローラクラス
+ */
 @RestController
-public class JobSearchController {
+public class CompanyController {
 
-	@Autowired JobService jobService;
+	/** 企業操作用サービス */
+	@Autowired CompanyService jobService;
 	
+	/**
+	 * 検索用API
+	 * return 検索結果
+	 */
 	@RequestMapping("/search")
 	public String search() {
 		
-		List<String> fullFillConditionJobList = jobService.searchFullFillJobList();
+		/**
+		 * 条件を満たす企業を探す
+		 */
+		List<Company> fullFillConditionJobList = jobService.searchFullFillCompanyList();
 		
 		return "{"
 				+ "["
