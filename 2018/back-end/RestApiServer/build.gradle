@@ -6,6 +6,7 @@ buildscript {
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -25,13 +26,37 @@ repositories {
 	mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 
 dependencies {
+	// 認証・認可(SpringSecurity)
 //	compile('org.springframework.boot:spring-boot-starter-security')
+
+	// MVC
 	compile('org.springframework.boot:spring-boot-starter-web')
+
+	// 永続化(Doma2)
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1-SNAPSHOT')
+	// Database
+	runtime('com.h2database:h2')
+
+	// ユーティリティ
 	compileOnly('org.projectlombok:lombok')
+
+	// テスト
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 //	testCompile('org.springframework.security:spring-security-test')
 }
+
+// Doma2のビルドエラー解消のためタスクの順序づけする。
+// 通常：processResourceタスクと、compileJavaタスクは並列実行
+// 変更：processResourceタスク->compileJavaタスク
+// Doma2は、compileJavaタスク実行時に、META-INF/・・・/xxxDao/xxx.sqlファイルが存在しないとエラーになるため、
+// processResourceタスク（リソースファイルの移動）を先に行う。
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+apply from:'eclipse.gradle'
