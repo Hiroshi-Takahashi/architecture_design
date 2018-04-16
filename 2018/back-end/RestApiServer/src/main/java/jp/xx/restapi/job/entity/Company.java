@@ -7,6 +7,9 @@ import org.seasar.doma.GeneratedValue;
 import org.seasar.doma.GenerationType;
 import org.seasar.doma.Id;
 
+/**
+ * 企業エンティティクラス
+ */
 @Entity
 public class Company {
 	/** ジョブ */

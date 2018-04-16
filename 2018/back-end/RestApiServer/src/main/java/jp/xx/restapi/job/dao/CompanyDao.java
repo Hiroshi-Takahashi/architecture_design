@@ -9,6 +9,9 @@ import org.seasar.doma.boot.ConfigAutowireable;
 
 import jp.xx.restapi.job.entity.Company;
 
+/**
+ * 企業用DAOクラス
+ */
 @ConfigAutowireable
 @Dao
 public interface CompanyDao {
