@@ -1,4 +1,4 @@
-CREATE table IF NOT EXISTS company(
+CREATE TABLE IF NOT EXISTS company(
 	companyId int primary key, 
 	companyName varchar(30),
 	jobCategoryLevel1 varchar(2),

@@ -24,6 +24,13 @@ public interface CompanyDao {
 	List<Company> selectAll();
 	
 	/**
+	 * 条件を満たした企業を取得する
+	 * @return 条件を満たした企業リスト
+	 */
+	@Select
+	List<Company> selectFullFillCompanyList(Company condition);
+	
+	/**
 	 * 登録する
 	 * @return 登録した件数
 	 */
