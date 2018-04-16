@@ -1,4 +1,4 @@
-package jp.xx.restapi.job.dao;
+package jp.xx.restapi.company.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
 import org.seasar.doma.boot.ConfigAutowireable;
 
-import jp.xx.restapi.job.entity.Company;
+import jp.xx.restapi.company.entity.Company;
 
 /**
  * 企業用DAOクラス

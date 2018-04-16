@@ -1,4 +1,4 @@
-package jp.xx.restapi.job.entity;
+package jp.xx.restapi.company.entity;
 
 import java.sql.Date;
 

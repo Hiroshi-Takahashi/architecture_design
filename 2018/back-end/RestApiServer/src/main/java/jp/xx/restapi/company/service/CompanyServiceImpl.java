@@ -1,12 +1,12 @@
-package jp.xx.restapi.job.service;
+package jp.xx.restapi.company.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.xx.restapi.job.dao.CompanyDao;
-import jp.xx.restapi.job.entity.Company;
+import jp.xx.restapi.company.dao.CompanyDao;
+import jp.xx.restapi.company.entity.Company;
 
 /**
  * 企業用サービスクラス

@@ -1,8 +1,8 @@
-package jp.xx.restapi.job.service;
+package jp.xx.restapi.company.service;
 
 import java.util.List;
 
-import jp.xx.restapi.job.entity.Company;
+import jp.xx.restapi.company.entity.Company;
 
 /**
  * 企業用サービスクラス

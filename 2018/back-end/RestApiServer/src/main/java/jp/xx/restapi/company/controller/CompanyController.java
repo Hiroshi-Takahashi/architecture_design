@@ -1,4 +1,4 @@
-package jp.xx.restapi.job.controller;
+package jp.xx.restapi.company.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jp.xx.restapi.job.entity.Company;
-import jp.xx.restapi.job.service.CompanyService;
+import jp.xx.restapi.company.entity.Company;
+import jp.xx.restapi.company.service.CompanyService;
 
 /**
  * 企業に対して操作を行うコントローラクラス
