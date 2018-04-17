@@ -1,6 +1,9 @@
-package jp.xx.restapi.company.form;
+package jp.xx.restapi.company.request;
 
-public class CompanySearchConditionForm {
+/**
+ * 企業検索用条件リクエスト
+ */
+public class CompanySearchConditionRequest {
 	/** ジョブカテゴリ１（大分類） */
 	private String jobCategoryLevel1;
 	/** ジョブカテゴリ２（小分類） */

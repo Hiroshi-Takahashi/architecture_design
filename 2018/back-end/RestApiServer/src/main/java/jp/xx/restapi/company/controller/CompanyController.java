@@ -1,7 +1,5 @@
 package jp.xx.restapi.company.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.xx.restapi.company.dto.CompanySearchConditionDto;
-import jp.xx.restapi.company.entity.Company;
-import jp.xx.restapi.company.form.CompanySearchConditionForm;
+import jp.xx.restapi.company.request.CompanySearchConditionRequest;
+import jp.xx.restapi.company.response.CompanySearchConditionResponse;
 import jp.xx.restapi.company.service.CompanyService;
 
 /**
@@ -28,7 +26,7 @@ public class CompanyController {
 	 */
 	@CrossOrigin
 	@RequestMapping("/search")
-	public List<Company> search(@RequestBody CompanySearchConditionForm conditionForm) {
+	public CompanySearchConditionResponse search(@RequestBody CompanySearchConditionRequest conditionForm) {
 		
 		/**
 		 * 条件を満たす企業を探す
@@ -36,6 +34,8 @@ public class CompanyController {
 		CompanySearchConditionDto conditionDto = new CompanySearchConditionDto();
 		conditionDto.setJobCategoryLevel1(conditionForm.getJobCategoryLevel1());
 		conditionDto.setJobCategoryLevel2(conditionForm.getJobCategoryLevel2());
-		return jobService.searchFullFillCompanyList(conditionDto);
+		CompanySearchConditionResponse response = new CompanySearchConditionResponse();
+		response.setFullFillCompanyList(jobService.searchFullFillCompanyList(conditionDto));
+		return response;
 	}
 }
