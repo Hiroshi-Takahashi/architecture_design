@@ -1,9 +1,17 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>TEST</h1>
     <h2>Essential Links</h2>
     <div>
+      カテゴリ1:<input type="text" v-model="jobCategoryLevel1"/>
+      カテゴリ2:<input type="text" v-model="jobCategoryLevel2"/>
+    </div>
+    <div>
       <input type="button" name="search" value="検索" @click="search"/>
+    </div>
+    <div>list!</div>
+    <div v-for="value in company_list" :key="value">
+      {{ value }}
     </div>
   </div>
 </template>
@@ -17,19 +25,26 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      jobCategoryLevel1: '01',
+      jobCategoryLevel2: '01',
+      company_list: []
     }
   },
   methods: {
     search: function (event) {
-      var condition = {
-        'jobCategoryLevel1': '01',
-        'jobCategoryLevel2': '02'
+      var req = {
+        'jobCategoryLevel1': this.jobCategoryLevel1,
+        'jobCategoryLevel2': this.jobCategoryLevel2
       }
-      return axios.post(URL_BASE + '/search', condition)
+      console.log('request=' + this.jobCategoryLevel1)
+      console.log('request=' + this.jobCategoryLevel2)
+      return axios.post(URL_BASE + '/search', req)
         .then(
           (res) => {
-            console.log(res)
+            console.log('response=' + res.data)
+            res.data.fullFillCompanyList.forEach(element => {
+              this.company_list.push(element.companyName)
+            })
           }
         )
     }
