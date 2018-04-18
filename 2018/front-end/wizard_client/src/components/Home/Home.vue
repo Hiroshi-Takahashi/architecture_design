@@ -19,8 +19,6 @@
 <script>
 import axios from 'axios'
 
-var URL_BASE = 'http://localhost:8080'
-
 export default {
   name: 'Home',
   data () {
@@ -36,12 +34,9 @@ export default {
         'jobCategoryLevel1': this.jobCategoryLevel1,
         'jobCategoryLevel2': this.jobCategoryLevel2
       }
-      console.log('request=' + this.jobCategoryLevel1)
-      console.log('request=' + this.jobCategoryLevel2)
-      return axios.post(URL_BASE + '/search', req)
+      return axios.post(process.env.API_ENDPOINT + '/search', req)
         .then(
           (res) => {
-            console.log('response=' + res.data)
             res.data.fullFillCompanyList.forEach(element => {
               this.company_list.push(element.companyName)
             })
