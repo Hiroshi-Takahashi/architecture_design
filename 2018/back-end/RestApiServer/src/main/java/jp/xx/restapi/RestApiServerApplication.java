@@ -8,5 +8,5 @@ public class RestApiServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestApiServerApplication.class, args);
-	}
+	} 
 }
