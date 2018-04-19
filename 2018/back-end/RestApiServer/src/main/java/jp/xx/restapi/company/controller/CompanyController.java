@@ -1,9 +1,12 @@
 package jp.xx.restapi.company.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import jp.xx.restapi.company.dto.CompanySearchConditionDto;
@@ -38,4 +41,11 @@ public class CompanyController {
 		response.setFullFillCompanyList(jobService.searchFullFillCompanyList(conditionDto));
 		return response;
 	}
+	
+    @CrossOrigin
+    @RequestMapping("/searchE")
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void searchE(@RequestBody CompanySearchConditionRequest conditionForm) {
+   }
 }
