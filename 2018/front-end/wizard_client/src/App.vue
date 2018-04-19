@@ -4,7 +4,6 @@
       header
     </div>
     <div id="app">
-      <img src="./assets/logo.png">
       <router-view/>
     </div>
     <div class="footer">
@@ -35,5 +34,8 @@ export default {
 .footer {
   background-color: cyan;
   height: 50px;
+}
+.error {
+  color: red;
 }
 </style>

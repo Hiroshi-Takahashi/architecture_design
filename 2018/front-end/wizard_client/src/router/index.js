@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home/Home'
-import Error400 from '@/components/Error/400'
+import Error404 from '@/components/Error/404'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/error/400',
-      name: 'Error400',
-      component: Error400
+      path: '/error/404',
+      name: 'Error404',
+      component: Error404
     }
   ]
 })

@@ -1,7 +1,11 @@
 <template>
   <div class="hello">
-    <h1>TEST</h1>
-    <h2>Essential Links</h2>
+    <h1>HOME画面</h1>
+    <div>
+      <div class="error" v-for="e in error_list" :key="e">
+        {{ e }}
+      </div>
+    </div>
     <div>
       カテゴリ1:<input type="text" v-model="jobCategoryLevel1"/>
       カテゴリ2:<input type="text" v-model="jobCategoryLevel2"/>
@@ -25,8 +29,9 @@ export default {
   data () {
     return {
       jobCategoryLevel1: '01',
-      jobCategoryLevel2: '01',
-      company_list: []
+      jobCategoryLevel2: '',
+      company_list: [],
+      error_list: []
     }
   },
   methods: {
@@ -47,8 +52,13 @@ export default {
           // 例外処理
           if (error.response) {
             if (error.response.status === 400) {
-              // 400用のページへ遷移
-              router.push({ name: 'Error400' })
+              this.error_list = []
+              error.response.data.errors.forEach(element => {
+                this.error_list.push(element.defaultMessage)
+              })
+            } else if (error.response.status === 404) {
+              // 404用のページへ遷移
+              router.push({ name: 'Error404' })
             }
           } else if (error.request) {
             console.log(error.request)
@@ -77,4 +87,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>
