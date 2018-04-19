@@ -18,6 +18,7 @@
 
 <script>
 import axios from 'axios'
+import router from '../../router'
 
 export default {
   name: 'Home',
@@ -36,12 +37,25 @@ export default {
       }
       return axios.post(process.env.API_ENDPOINT + '/search', req)
         .then(
+          // 正常終了
           (res) => {
             res.data.fullFillCompanyList.forEach(element => {
               this.company_list.push(element.companyName)
             })
           }
-        )
+        ).catch(error => {
+          // 例外処理
+          if (error.response) {
+            if (error.response.status === 400) {
+              // 400用のページへ遷移
+              router.push({ name: 'Error400' })
+            }
+          } else if (error.request) {
+            console.log(error.request)
+          } else {
+            console.log(error.message)
+          }
+        })
     }
   }
 }
