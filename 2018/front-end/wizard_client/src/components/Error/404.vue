@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <h1>ぺーじがみつかりませんでした</h1>
+    <h1>ページが見つかりません</h1>
     <h2>ステータス４０４</h2>
     <div>
       <router-link to="/">Home</router-link>
