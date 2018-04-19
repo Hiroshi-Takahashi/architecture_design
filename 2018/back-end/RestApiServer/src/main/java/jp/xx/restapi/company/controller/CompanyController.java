@@ -45,7 +45,10 @@ public class CompanyController {
 	
     @CrossOrigin
     @RequestMapping("/searchE")
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public void searchE(@RequestBody CompanySearchConditionRequest conditionForm) {
+        /**
+         * 404エラー検証用に追加したメソッド
+         */
    }
 }
