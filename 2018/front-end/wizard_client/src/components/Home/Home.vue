@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="page">
     <h1>HOME画面</h1>
     <div>
       <div class="error" v-for="e in error_list" :key="e">
