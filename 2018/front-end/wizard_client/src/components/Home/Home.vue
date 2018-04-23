@@ -12,7 +12,7 @@
       <div>カテゴリ2:<input type="text" v-model="jobCategoryLevel2"/></div>
     </div>
     <div>
-      <input type="button" name="search" value="検索" @click="search"/>
+      <input type="button" id="search" value="検索" @click="search"/>
     </div>
     <div class="div_table" v-if="company_list.length > 0">
       <div class="div_table_heading">
@@ -43,7 +43,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      jobCategoryLevel1: '01',
+      jobCategoryLevel1: '',
       jobCategoryLevel2: '',
       company_list: [],
       error_list: []
